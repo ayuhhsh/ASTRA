@@ -1,0 +1,4 @@
+DB_HOST=localhost
+BD_USER=root
+DB_PASSWORD=8923
+DB_NAME=astra_readings
