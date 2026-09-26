@@ -1,6 +1,9 @@
 import random
 import time
 import json
+import urllib.request
+
+API_URL = "http://localhost:8080/api/health-readings"
 
 astronauts = {
     1: {
@@ -37,47 +40,66 @@ astronauts = {
 }
 
 
-while True:
+def send_health_data(health_data):
 
-    for astronaut_id, astronaut in astronauts.items():
+    data = json.dumps(health_data).encode("utf-8")
 
-        # Generate small changes
-        astronaut["heart_rate"] += random.randint(-2, 2)
+    request = urllib.request.Request(
+        API_URL,
+        data=data,
+        headers={
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
 
-        astronaut["spo2"] += random.choice([-1, 0, 0, 0, 1])
+    try:
+        with urllib.request.urlopen(request) as response:
+            result = response.read().decode("utf-8")
+            print("Sent:", result)
 
-        astronaut["temperature"] += random.uniform(-0.1, 0.1)
+    except Exception as e:
+        print("Error:", e)
 
-        astronaut["stress_level"] += random.randint(-2, 2)
 
-        # Keep values within simulation ranges
-        astronaut["heart_rate"] = max(
-            60, min(100, astronaut["heart_rate"])
-        )
+# TEST MODE
+# Only one reading for each astronaut
+for astronaut_id, astronaut in astronauts.items():
 
-        astronaut["spo2"] = max(
-            94, min(100, astronaut["spo2"])
-        )
+    astronaut["heart_rate"] += random.randint(-2, 2)
 
-        astronaut["temperature"] = max(
-            36.0, min(38.0, astronaut["temperature"])
-        )
+    astronaut["spo2"] += random.choice([-1, 0, 0, 0, 1])
 
-        astronaut["stress_level"] = max(
-            0, min(100, astronaut["stress_level"])
-        )
+    astronaut["temperature"] += random.uniform(-0.1, 0.1)
 
-        # Create JSON
-        health_data = {
-            "astronautId": astronaut_id,
-            "heartRate": astronaut["heart_rate"],
-            "spo2": astronaut["spo2"],
-            "temperature": round(
-                astronaut["temperature"], 1
-            ),
-            "stressLevel": astronaut["stress_level"]
-        }
+    astronaut["stress_level"] += random.randint(-2, 2)
 
-        print(json.dumps(health_data))
+    astronaut["heart_rate"] = max(
+        60, min(100, astronaut["heart_rate"])
+    )
+
+    astronaut["spo2"] = max(
+        94, min(100, astronaut["spo2"])
+    )
+
+    astronaut["temperature"] = max(
+        36.0, min(38.0, astronaut["temperature"])
+    )
+
+    astronaut["stress_level"] = max(
+        0, min(100, astronaut["stress_level"])
+    )
+
+    health_data = {
+        "astronautId": astronaut_id,
+        "heartRate": astronaut["heart_rate"],
+        "spo2": astronaut["spo2"],
+        "temperature": round(
+            astronaut["temperature"], 1
+        ),
+        "stressLevel": astronaut["stress_level"]
+    }
+
+    send_health_data(health_data)
 
     time.sleep(1)
