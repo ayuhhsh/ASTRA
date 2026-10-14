@@ -1,11 +1,11 @@
 package com.astramonitor.backend.controller;
 
+import com.astramonitor.backend.dto.request.HealthReadingRequestDto;
 import com.astramonitor.backend.entity.HealthReading;
 import com.astramonitor.backend.service.HealthReadingService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/health-readings")
@@ -17,7 +17,8 @@ public class HealthReadingController {
     }
 
     @PostMapping
-    public HealthReading receiveHealthReading(@RequestBody HealthReading healthReading) {
-        return healthReadingService.saveHealthReading(healthReading);
+    public HealthReading receiveHealthReading(@RequestBody HealthReadingRequestDto request) {
+        return healthReadingService.saveHealthReading(request);
     }
+
 }

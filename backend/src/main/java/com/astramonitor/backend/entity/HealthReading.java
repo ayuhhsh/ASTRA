@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "health_reading")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 public class HealthReading {
 
@@ -18,7 +18,9 @@ public class HealthReading {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long astronautId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "astronaut_id", nullable = false)
+    private Astronaut astronaut;
 
     private Integer heartRate;
 
