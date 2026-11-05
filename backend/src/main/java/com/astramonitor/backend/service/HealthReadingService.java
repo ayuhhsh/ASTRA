@@ -1,8 +1,10 @@
 package com.astramonitor.backend.service;
 
 import com.astramonitor.backend.dto.request.HealthReadingRequestDto;
+import com.astramonitor.backend.dto.response.HealthReadingResponseDto;
 import com.astramonitor.backend.entity.Astronaut;
 import com.astramonitor.backend.entity.HealthReading;
+import com.astramonitor.backend.entity.RiskAssessment;
 import com.astramonitor.backend.repository.AstronautRepository;
 import com.astramonitor.backend.repository.HealthReadingRepository;
 
@@ -30,7 +32,7 @@ public class HealthReadingService {
     }
 
     @Transactional
-    public HealthReading saveHealthReading(
+    public HealthReadingResponseDto saveHealthReading(
             HealthReadingRequestDto request) {
 
         Astronaut astronaut = astronautRepository
@@ -53,7 +55,17 @@ public class HealthReadingService {
 
         riskAssessmentService.assessRisk(savedReading);
 
-        return savedReading;
+        return new HealthReadingResponseDto(
+                savedReading.getId(),
+                astronaut.getId(),
+                astronaut.getName(),
+                astronaut.getMission(),
+                savedReading.getHeartRate(),
+                savedReading.getSpo2(),
+                savedReading.getTemperature(),
+                savedReading.getStressLevel(),
+                savedReading.getRecordedAt()
+        );
     }
 
     public List<HealthReading> getHealthHistory(Long astronautId) {

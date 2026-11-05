@@ -88,4 +88,16 @@ public class RiskAssessmentService {
 
         return savedAssessment;
     }
+
+    public RiskAssessment getLatestRisk(Long astronautId) {
+        return riskAssessmentRepository
+                .findFirstByAstronaut_IdOrderByCreatedAtDesc(astronautId)
+                .orElseThrow(() -> new RuntimeException(
+                        "No risk assessment found for astronaut ID: "
+                                + astronautId
+                ));
+    }
+
+
+
 }

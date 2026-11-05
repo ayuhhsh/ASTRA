@@ -2,9 +2,11 @@ package com.astramonitor.backend.controller;
 
 import com.astramonitor.backend.entity.Astronaut;
 import com.astramonitor.backend.entity.HealthReading;
+import com.astramonitor.backend.entity.RiskAssessment;
 import com.astramonitor.backend.service.AstronautService;
 
 import com.astramonitor.backend.service.HealthReadingService;
+import com.astramonitor.backend.service.RiskAssessmentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +17,12 @@ public class AstronautController {
 
     private final AstronautService astronautService;
     private final HealthReadingService healthReadingService;
+    private final RiskAssessmentService riskAssessmentService;
 
-    public AstronautController(AstronautService astronautService, HealthReadingService healthReadingService) {
+    public AstronautController(AstronautService astronautService, HealthReadingService healthReadingService, RiskAssessmentService riskAssessmentService) {
         this.astronautService = astronautService;
         this.healthReadingService = healthReadingService;
+        this.riskAssessmentService = riskAssessmentService;
     }
 
     @GetMapping
@@ -40,4 +44,10 @@ public class AstronautController {
     public Astronaut saveAstronaut(@RequestBody Astronaut astronaut) {
         return astronautService.saveAstronaut(astronaut);
     }
+    @GetMapping("/{id}/risk")
+    public RiskAssessment getLatestRisk(@PathVariable Long id) {
+        return riskAssessmentService.getLatestRisk(id);
+    }
+
+
 }
