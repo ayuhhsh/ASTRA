@@ -1,0 +1,21 @@
+{
+  "threshold": -0.1255501137972717,
+  "features": [
+    "heartRate",
+    "spo2",
+    "temperature",
+    "stressLevel"
+  ],
+  "model": "IsolationForest",
+  "threshold_rule": "anomaly when decision_function score < threshold",
+  "threshold_method": "validation_f1",
+  "validation_f1": 0.9690721649484536,
+  "training_data_source": "simulated",
+  "training_rows": 600,
+  "dataset_rows_after_deduplication": 1200,
+  "trained_at_utc": "2026-11-05T17:58:59.745183+00:00",
+  "preprocessing": "numeric conversion; rows with missing/non-numeric selected features rejected",
+  "note": "Synthetic demonstration metrics only. Random row splitting may not measure generalization to unseen astronauts or sessions. Not validated on NASA data or for clinical/flight-safety use.",
+  "dataset_file": "astronaut_data.csv",
+  "dataset_path_at_training": "C:\\Users\\ayush\\OneDrive\\Desktop\\HACKATHON\\ASTRA\\astronaut_data.csv"
+}

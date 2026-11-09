@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+joblib
+pydantic>=2.0
+
+
+You can install these dependencies using the command below, but before running the command, erase all text written below pydantic.
+command - "pip install -r requirements.txt"
