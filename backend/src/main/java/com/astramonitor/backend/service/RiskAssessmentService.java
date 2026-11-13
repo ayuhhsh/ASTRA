@@ -2,23 +2,25 @@ package com.astramonitor.backend.service;
 
 import com.astramonitor.backend.entity.HealthReading;
 import com.astramonitor.backend.entity.RiskAssessment;
+import com.astramonitor.backend.exception.ResourceNotFoundException;
 import com.astramonitor.backend.repository.HealthReadingRepository;
 import com.astramonitor.backend.repository.RiskAssessmentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class RiskAssessmentService {
 
-    private final HealthReadingRepository healthReadingRepository;
+
     private final RiskAssessmentRepository riskAssessmentRepository;
     private final AlertService alertService;
 
 
-    public RiskAssessmentService(HealthReadingRepository healthReadingRepository, RiskAssessmentRepository riskAssessmentRepository, AlertService alertService) {
-        this.healthReadingRepository = healthReadingRepository;
+    public RiskAssessmentService( RiskAssessmentRepository riskAssessmentRepository, AlertService alertService) {
+
         this.riskAssessmentRepository = riskAssessmentRepository;
         this.alertService = alertService;
     }
@@ -89,15 +91,21 @@ public class RiskAssessmentService {
         return savedAssessment;
     }
 
+
     public RiskAssessment getLatestRisk(Long astronautId) {
+
         return riskAssessmentRepository
                 .findFirstByAstronaut_IdOrderByCreatedAtDesc(astronautId)
-                .orElseThrow(() -> new RuntimeException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "No risk assessment found for astronaut ID: "
                                 + astronautId
                 ));
     }
 
+    public List<RiskAssessment> getRiskHistory(Long astronautId) {
 
+        return riskAssessmentRepository
+                .findByAstronaut_IdOrderByCreatedAtDesc(astronautId);
+    }
 
 }

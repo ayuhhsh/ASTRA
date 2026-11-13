@@ -1,5 +1,6 @@
 package com.astramonitor.backend.controller;
 
+import com.astramonitor.backend.dto.response.AlertResponseDto;
 import com.astramonitor.backend.entity.Alert;
 import com.astramonitor.backend.service.AlertService;
 import org.springframework.web.bind.annotation.*;
@@ -17,33 +18,51 @@ public class AlertController {
     }
 
     @GetMapping
-    public List<Alert> getAllAlerts() {
-        return alertService.getAllAlerts();
+    public List<AlertResponseDto> getAllAlerts() {
+        return alertService.getAllAlerts()
+                .stream()
+                .map(this::convertToDto)
+                .toList();
     }
 
     @GetMapping("/status/{status}")
-    public List<Alert> getAlertsByStatus(
+    public List<AlertResponseDto> getAlertsByStatus(
             @PathVariable String status) {
-        return alertService.getAlertsByStatus(
-                status.toUpperCase()
-        );
+
+        return alertService.getAlertsByStatus(status.toUpperCase())
+                .stream()
+                .map(this::convertToDto)
+                .toList();
     }
 
     @PatchMapping("/{id}/status")
-    public Alert updateAlertStatus(
+    public AlertResponseDto updateAlertStatus(
             @PathVariable Long id,
             @RequestBody Map<String, String> request) {
 
         String status = request.get("status");
 
         if (status == null || status.isBlank()) {
-            throw new IllegalArgumentException(
-                    "Status is required"
-            );
+            throw new IllegalArgumentException("Status is required");
         }
 
-        return alertService.updateAlertStatus(
+        Alert alert = alertService.updateAlertStatus(
                 id, status.toUpperCase()
+        );
+
+        return convertToDto(alert);
+    }
+
+    private AlertResponseDto convertToDto(Alert alert) {
+        return new AlertResponseDto(
+                alert.getId(),
+                alert.getAstronaut().getId(),
+                alert.getAstronaut().getName(),
+                alert.getAstronaut().getMission(),
+                alert.getSeverity(),
+                alert.getMessage(),
+                alert.getStatus(),
+                alert.getCreatedAt()
         );
     }
 }

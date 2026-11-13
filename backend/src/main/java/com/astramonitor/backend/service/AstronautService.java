@@ -1,6 +1,7 @@
 package com.astramonitor.backend.service;
 
 import com.astramonitor.backend.entity.Astronaut;
+import com.astramonitor.backend.exception.ResourceNotFoundException;
 import com.astramonitor.backend.repository.AstronautRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class AstronautService {
     public Astronaut getAstronautById(Long id) {
         return astronautRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException(
+                        new ResourceNotFoundException(
                                 "Astronaut not found with ID: " + id
                         )
                 );

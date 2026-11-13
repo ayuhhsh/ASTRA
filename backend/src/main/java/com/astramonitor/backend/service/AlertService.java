@@ -2,6 +2,7 @@ package com.astramonitor.backend.service;
 
 import com.astramonitor.backend.entity.Alert;
 import com.astramonitor.backend.entity.RiskAssessment;
+import com.astramonitor.backend.exception.ResourceNotFoundException;
 import com.astramonitor.backend.repository.AlertRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,7 @@ public class AlertService {
         }
 
         Alert alert = alertRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "Alert not found with ID: " + id
                 ));
 

@@ -5,6 +5,9 @@ import com.astramonitor.backend.dto.response.HealthReadingResponseDto;
 import com.astramonitor.backend.entity.Astronaut;
 import com.astramonitor.backend.entity.HealthReading;
 import com.astramonitor.backend.entity.RiskAssessment;
+import com.astramonitor.backend.exception.ResourceNotFoundException;
+import com.astramonitor.backend.ml.MLClient;
+import com.astramonitor.backend.ml.MLPredictionResponse;
 import com.astramonitor.backend.repository.AstronautRepository;
 import com.astramonitor.backend.repository.HealthReadingRepository;
 
@@ -21,14 +24,18 @@ public class HealthReadingService {
     private final HealthReadingRepository healthReadingRepository;
     private final AstronautRepository astronautRepository;
     private final RiskAssessmentService riskAssessmentService;
+    private final MLClient mlClient;
+    private final MLPredictionService mlPredictionService;
 
     public HealthReadingService(
             HealthReadingRepository healthReadingRepository,
             AstronautRepository astronautRepository,
-            RiskAssessmentService riskAssessmentService) {
+            RiskAssessmentService riskAssessmentService, MLClient mlClient, MLPredictionService mlPredictionService) {
         this.healthReadingRepository = healthReadingRepository;
         this.astronautRepository = astronautRepository;
         this.riskAssessmentService = riskAssessmentService;
+        this.mlClient = mlClient;
+        this.mlPredictionService = mlPredictionService;
     }
 
     @Transactional
@@ -37,7 +44,7 @@ public class HealthReadingService {
 
         Astronaut astronaut = astronautRepository
                 .findById(request.getAstronautId())
-                .orElseThrow(() -> new RuntimeException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "Astronaut not found with ID: "
                                 + request.getAstronautId()));
 
@@ -55,6 +62,16 @@ public class HealthReadingService {
 
         riskAssessmentService.assessRisk(savedReading);
 
+
+        try {
+            MLPredictionResponse prediction = mlClient.predict(request);
+            mlPredictionService.savePrediction(astronaut, prediction);
+
+        } catch (Exception e) {
+            System.err.println("ML prediction failed:");
+            e.printStackTrace();
+        }
+
         return new HealthReadingResponseDto(
                 savedReading.getId(),
                 astronaut.getId(),
@@ -71,7 +88,7 @@ public class HealthReadingService {
     public List<HealthReading> getHealthHistory(Long astronautId) {
 
         if (!astronautRepository.existsById(astronautId)) {
-            throw new RuntimeException(
+            throw new ResourceNotFoundException(
                     "Astronaut not found with ID: " + astronautId);
         }
 
