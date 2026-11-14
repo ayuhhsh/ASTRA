@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ASTRA — Astronaut Health &amp; Mission Control
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="stars">
+  </div>
+  <div id="intro">
+   <div class="intro-mark">
+    <div class="logo">
+    <span>A</span>STRA
+    </div>
+    <div class="intro-line">
+    </div>
+    <div class="intro-sub">
+    <h3>Astronaut Safety, Tracking & Risk Analysis</h3><h2>MONITOR
+     <!-- Astronaut Systems · Telemetry · Research · Analytics -->
+    </div>
+   </div>
+  </div>
+  <header class="global-brandbar">
+   <div class="global-brandbar-title">
+    <div class="global-wordmark">
+     <span class="global-brand"><span class="global-brand-accent">A</span>STRA</span>
+     <span class="global-monitor"><span>M</span><span>O</span><span>N</span><span>I</span><span>T</span><span>O</span><span>R</span></span>
+    </div>
+    <span class="global-brandbar-divider">—</span>
+    <span class="global-brandbar-description"><span class="global-title-accent">Astronaut</span> Safety, Tracking &amp; Risk Analysis</span>
+   </div>
+  </header>
+  <div class="app">
+   <aside class="sidebar">
+    <div class="eyebrow" style="padding:0 13px 10px">
+     Workspace
+    </div>
+    <nav aria-label="Main navigation" class="nav">
+     <button class="active" data-screen="select">
+      <span class="ico">
+       ⌂
+      </span>
+      Overview
+     </button>
+     <button data-screen="dashboard">
+      <span class="ico">
+       ◉
+      </span>
+      Health dashboard
+     </button>
+     <button data-screen="mission">
+      <span class="ico">
+       ✦
+      </span>
+      Mission status
+     </button>
+     <button data-screen="vitals">
+      <span class="ico">
+       ⌁
+      </span>
+      Vitals &amp; telemetry
+     </button>
+     <button data-screen="alerts">
+      <span class="ico">
+       △
+      </span>
+      Health alerts
+     </button>
+    </nav>
+</aside>
+   <main class="main">
+    <header class="topbar">
+     <div class="crumb">
+      ASTRA /
+      <span id="crumb">
+       Astronaut selection
+      </span>
+     </div>
+     <div class="topright">
+      <span class="live">
+       <span class="status-dot">
+       </span>
+       LIVE TRACKING
+      </span>
+     </div>
+    </header>
+    <section class="screen active" id="select">
+     <div class="hero">
+      <div class="hero-content">
+       <div class="eyebrow">
+        Crew health monitoring
+       </div>
+       <h1>
+        MISSION NAME
+       </h1>
+       <p>
+        Monitor crew health and mission status.
+       </p>
+       <div class="hero-actions">
+        <button class="btn primary" id="chooseBtn">
+         Select astronaut ↗
+        </button>
+        <button class="btn" data-goto="mission">
+         Explore mission
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="section-head">
+      <div>
+       <h2>
+        Select your astronaut
+       </h2>
+      </div>
+     </div>
+     <div class="cards">
+      <button class="astronaut-card" data-astronaut="maya">
+       <div class="portrait">
+        <div class="helmet">
+        </div>
+        <div class="suit">
+        </div>
+        <span class="patch">
+         ASTRA
+        </span>
+       </div>
+       <div class="card-body">
+        <div class="card-top">
+         <div>
+          <h3>
+           Commander Maya Chen
+          </h3>
+          <div class="role">
+           Mission Commander
+          </div>
+         </div>
+         <span class="tag">
+          ON MISSION
+         </span>
+        </div>
+        <div class="card-meta">
+         <span>
+          EXPEDITION 07
+         </span>
+         <span>
+          ISS · ORBIT
+         </span>
+        </div>
+       </div>
+      </button>
+      <button class="astronaut-card" data-astronaut="leo">
+       <div class="portrait" style="background:radial-gradient(ellipse at 50% 95%,#45516f,#10182b 58%,#06101d)">
+        <div class="helmet" style="background:linear-gradient(135deg,#c2eaff,#61799e 24%,#121c35 62%,#82a6c9)">
+        </div>
+        <div class="suit">
+        </div>
+        <span class="patch">
+         ASTRA
+        </span>
+       </div>
+       <div class="card-body">
+        <div class="card-top">
+         <div>
+          <h3>
+           Dr. Leo Martínez
+          </h3>
+          <div class="role">
+           Flight Surgeon · Crew
+          </div>
+         </div>
+         <span class="tag blue">
+          ON DUTY
+         </span>
+        </div>
+        <div class="card-meta">
+         <span>
+          EXPEDITION 07
+         </span>
+         <span>
+          ISS · ORBIT
+         </span>
+        </div>
+       </div>
+      </button>
+      <button class="astronaut-card" data-astronaut="amara">
+       <div class="portrait" style="background:radial-gradient(ellipse at 50% 95%,#4c4a73,#15142d 58%,#06101d)">
+        <div class="helmet" style="background:linear-gradient(135deg,#e6d6ff,#7d70a7 24%,#17152f 62%,#b0a0d8)">
+        </div>
+        <div class="suit">
+        </div>
+        <span class="patch">
+         ASTRA
+        </span>
+       </div>
+       <div class="card-body">
+        <div class="card-top">
+         <div>
+          <h3>
+           Amara Okafor
+          </h3>
+          <div class="role">
+           Flight Engineer
+          </div>
+         </div>
+         <span class="tag">
+          ON MISSION
+         </span>
+        </div>
+        <div class="card-meta">
+         <span>
+          EXPEDITION 07
+         </span>
+         <span>
+          ISS · ORBIT
+         </span>
+        </div>
+       </div>
+      </button>
+     </div>
+    </section>
+    <section class="screen" id="dashboard">
+     <div class="section-head" style="margin-top:0">
+      <div>
+       <div class="eyebrow">
+        Crew health intelligence
+       </div>
+       <h2 style="font-size:1.5rem;margin-top:7px">
+        Crew dashboard
+       </h2>
+       <p>
+        Expedition 07 · Crew monitoring
+       </p>
+      </div>
+      <button class="btn" data-goto="select">
+       ↶ Change crew
+      </button>
+     </div>
+     <div class="profile-scan-row">
+<div class="crew-left-stack">
+<div class="profile-strip">
+      <div class="mini-portrait">
+       <div class="helmet">
+       </div>
+      </div>
+      <div class="profile-info">
+       <div class="eyebrow" id="crew-role">
+        MISSION COMMANDER
+       </div>
+       <h2 id="crew-name">
+        Commander Maya Chen
+       </h2>
+       <p id="crew-sub">
+        Expedition 07 · International Space Station · Orbit 412
+       </p>
+      </div>
+     </div>
+<div class="panel latest-update-card">
+      <div class="panel-title">
+       <h3>Latest update</h3>
+      </div>
+      <div class="latest-update-content">
+       <span>No critical alerts</span>
+       <span class="tag pulse latest-healthy-badge">HEALTHY</span>
+      </div>
+     </div>
+</div>
+<section class="astra-body-scan panel" aria-label="Astronaut body scan">
+      <div class="panel-title">
+       <h3>Astronaut body scan</h3>
+       
+      </div>
+      <p class="scan-caption">Hover over the astronaut, to view the readings.</p>
+      <div class="astra-scan-layout">
+       <div class="astra-scan-stage" id="astraStage" tabindex="0" aria-label="Astronaut body scan. Hover or tap to reveal organs.">
+        <svg viewBox="0 0 300 480" role="img" aria-label="Astronaut and body scan">
+
+          <g id="stars"></g>
+          <g class="figure">
+          <!-- Spacesuit -->
+          <g class="suit">
+            <!-- Rounded helmet -->
+            <path class="shade" d="M111 91C111 52 128 29 150 29S189 52 189 91C189 119 173 137 150 137S111 119 111 91Z"/>
+            <ellipse class="part" cx="150" cy="88" rx="42" ry="49"/>
+            <ellipse class="visor" cx="150" cy="88" rx="34" ry="40"/>
+            <path class="glint" d="M126 72Q137 53 157 52"/>
+
+            <!-- Anatomically shaped pressure suit: shoulders, tapered waist and limbs -->
+            <path class="part" d="M112 145Q122 135 137 132L150 140L163 132Q178 135 188 145
+              Q201 151 207 171L219 238Q221 252 208 257L197 260L187 205
+              L190 280Q190 294 176 297L124 297Q110 294 110 280L113 205
+              L103 260L92 257Q79 252 81 238L93 171Q99 151 112 145Z"/>
+            <path class="shade" d="M125 139Q150 151 175 139L184 163Q177 177 150 177Q123 177 116 163Z"/>
+            <path class="shade" d="M112 282Q150 293 188 282L184 315Q180 327 168 327H132Q120 327 116 315Z"/>
+            <path class="part" d="M119 311Q133 317 146 315L143 413Q142 428 131 432L117 432Q108 428 109 414Z"/>
+            <path class="part" d="M154 315Q167 317 181 311L191 414Q192 428 183 432L169 432Q158 428 157 413Z"/>
+            <path class="shade" d="M109 416Q126 423 143 417L145 447Q145 458 134 460H111Q102 457 103 447Z"/>
+            <path class="shade" d="M157 417Q174 423 191 416L197 447Q198 457 189 460H166Q155 458 155 447Z"/>
+
+            <!-- Suit seams and chest telemetry panel -->
+            <path class="seam" d="M116 278Q150 288 184 278"/>
+            <path class="seam" d="M150 177V278"/>
+            <rect class="visor" x="133" y="190" width="34" height="24" rx="6"/>
+            <circle class="led a" cx="142" cy="202" r="2.5"/>
+            <circle class="led b" cx="150" cy="202" r="2.5"/>
+            <circle class="led c" cx="158" cy="202" r="2.5"/>
+            <path class="seam" d="M98 245L109 249M202 245L191 249"/>
+          </g>
+
+          <!-- Body scan (same silhouette as the suit) -->
+          <g class="body">
+            <!-- Human-shaped scan outline, aligned to the suit silhouette -->
+            <ellipse class="line skin" pathLength="1" cx="150" cy="88" rx="36" ry="44"/>
+            <path class="line skin" pathLength="1" d="M139 128L139 142Q122 140 111 149Q99 158 96 180L84 239Q82 251 94 255L103 257L116 205L112 279Q111 294 126 298L174 298Q189 294 188 279L184 205L197 257L206 255Q218 251 216 239L204 180Q201 158 189 149Q178 140 161 142L161 128"/>
+            <path class="line skin" pathLength="1" d="M126 298Q119 307 117 320L111 412Q110 428 121 432L132 432Q143 429 143 414L146 317"/>
+            <path class="line skin" pathLength="1" d="M154 317L157 414Q157 429 168 432L179 432Q190 428 189 412L183 320Q181 307 174 298"/>
+            <!-- Mind -->
+            <ellipse class="organ" data-vital="mind" cx="150" cy="80" rx="26" ry="22"><title>Mind: stress level</title></ellipse>
+
+            <!-- Lungs -->
+            <path class="organ" data-vital="lungs" d="M116 172Q104 202 112 232Q136 238 144 218L144 178Q130 166 116 172Z"><title>Lungs: SpO2</title></path>
+            <path class="organ" data-vital="lungs" d="M184 172Q196 202 188 232Q164 238 156 218L156 178Q170 166 184 172Z"><title>Lungs: SpO2</title></path>
+
+            <!-- Heart -->
+            <g transform="translate(160 214) scale(1.5) translate(-160 -214)">
+              <path class="organ beat" data-vital="heart" d="M160 232C142 216 142 200 152 200C157 200 160 204 160 207C160 204 164 200 169 200C179 200 179 216 160 232Z"><title>Heart: heart rate</title></path>
+            </g>
+
+            <circle class="ring" cx="160" cy="214" r="14"/>
+
+            <!-- Core temperature -->
+            <g class="organ core" data-vital="temp"><title>Body temperature</title>
+              <rect x="120" y="246" width="60" height="36" rx="12"/>
+              <rect class="tube" x="146" y="250" width="8" height="18" rx="4"/>
+              <rect class="solid mercury" x="147.5" y="251.5" width="5" height="15" rx="2.5"/>
+              <circle class="solid" cx="150" cy="272" r="6"/>
+            </g>
+          </g>
+          </g>
+        </svg>
+        <div class="astra-scan-tip" id="astraTip"><span id="astraTipLabel"></span><b id="astraTipValue"></b></div>
+       </div>
+       <div class="astra-scan-values">
+        <div class="scan-value" data-scan="heart"><span>Heart rate</span><strong><b id="scanHeart">72</b> <small>bpm</small></strong></div>
+        <div class="scan-value" data-scan="mind"><span>Stress level</span><strong><b id="scanMind">30</b> <small>/ 100</small></strong><i><em id="scanMindBar"></em></i></div>
+        <div class="scan-value" data-scan="lungs"><span>Blood oxygen</span><strong><b id="scanLungs">98</b> <small>%</small></strong></div>
+        <div class="scan-value" data-scan="temp"><span>Body temperature</span><strong><b id="scanTemp">36.8</b> <small>°C</small></strong></div>
+       </div>
+      </div>
+      
+     </section>
+</div>
+
+     <div class="dashboard-grid">
+      <div class="panel">
+       <div class="panel-title">
+        <h3>
+         Heart rate
+        </h3>
+        <span>
+         LAST 10 SECONDS
+        </span>
+       </div>
+       <svg aria-label="Simulated heart rate waveform" class="chart" preserveaspectratio="none" viewbox="0 0 600 150">
+        <defs>
+         <lineargradient id="area" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#54d8ff" stop-opacity=".22">
+          </stop>
+          <stop offset="1" stop-color="#54d8ff" stop-opacity="0">
+          </stop>
+         </lineargradient>
+        </defs>
+        <g stroke="#183149" stroke-width="1">
+         <path d="M0 25H600M0 60H600M0 95H600M0 130H600">
+         </path>
+         <path d="M100 0V150M200 0V150M300 0V150M400 0V150M500 0V150">
+         </path>
+        </g>
+        <path d="M0 78 L30 78 L40 72 L50 85 L61 78 L72 78 L83 78 L92 32 L101 119 L110 60 L120 78 L160 78 L170 73 L180 84 L190 78 L220 78 L230 31 L239 119 L248 60 L258 78 L300 78 L310 73 L320 84 L330 78 L360 78 L370 31 L379 119 L388 60 L398 78 L440 78 L450 73 L460 84 L470 78 L500 78 L510 31 L519 119 L528 60 L538 78 L600 78 L600 150 L0 150Z" fill="url(#area)" id="waveArea">
+        </path>
+        <path d="M0 78 L30 78 L40 72 L50 85 L61 78 L72 78 L83 78 L92 32 L101 119 L110 60 L120 78 L160 78 L170 73 L180 84 L190 78 L220 78 L230 31 L239 119 L248 60 L258 78 L300 78 L310 73 L320 84 L330 78 L360 78 L370 31 L379 119 L388 60 L398 78 L440 78 L450 73 L460 84 L470 78 L500 78 L510 31 L519 119 L528 60 L538 78 L600 78" fill="none" id="waveLine" stroke="#69dcff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+       </svg>
+       <div class="chart-labels">
+        <span>
+         −10 sec
+        </span>
+        <span>
+         −7.5 sec
+        </span>
+        <span>
+         −5 sec
+        </span>
+        <span>
+         −2.5 sec
+        </span>
+        <span>
+         NOW
+        </span>
+       </div>
+      </div>
+      <div class="panel">
+       <div class="panel-title">
+        <h3>
+         Health status
+        </h3>
+        <span>
+         STATUS CHECK
+        </span>
+       </div>
+       <div class="health-list">
+        <div class="health-row">
+         <div class="health-icon">
+          ♥
+         </div>
+         <div>
+          Cardiovascular
+          <small>
+           Heart rate &amp; rhythm
+          </small>
+          <div class="bar">
+           <span style="width:91%">
+           </span>
+          </div>
+         </div>
+         <div class="health-value" style="color:var(--green)">
+          Normal
+         </div>
+        </div>
+        <div class="health-row">
+         <div class="health-icon">
+          ◉
+         </div>
+         <div>
+          Respiratory
+          <small>
+           Oxygen &amp; respiration
+          </small>
+          <div class="bar">
+           <span style="width:98%">
+           </span>
+          </div>
+         </div>
+         <div class="health-value" style="color:var(--green)">
+          Normal
+         </div>
+        </div>
+        <div class="health-row">
+         <div class="health-icon">
+          ⌁
+         </div>
+         <div>
+          Thermoregulation
+          <small>
+           Core temperature
+          </small>
+          <div class="bar">
+           <span style="width:85%">
+           </span>
+          </div>
+         </div>
+         <div class="health-value" style="color:var(--green)">
+          Normal
+         </div>
+        </div>
+        <div class="health-row">
+         <div class="health-icon">
+          ☾
+         </div>
+         <div>
+          Sleep &amp; recovery
+          <small>
+           Last rest period
+          </small>
+          <div class="bar">
+           <span style="width:76%">
+           </span>
+          </div>
+         </div>
+         <div class="health-value" style="color:var(--green)">
+          Good
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     
+    </section>
+    <section class="screen" id="mission">
+     <div class="section-head" style="margin-top:0">
+      <div>
+       <div class="eyebrow">
+        Expedition 07
+       </div>
+       <h2 style="font-size:1.5rem;margin-top:7px">
+        Mission status
+       </h2>
+       <p>
+        Mission overview and crew readiness.
+       </p>
+      </div>
+      <span class="live">
+       <span class="status-dot">
+       </span>
+       MISSION ACTIVE
+      </span>
+     </div>
+     <div class="mission-layout">
+      <div class="panel mission-visual">
+       <div class="eyebrow" style="position:relative;z-index:2">
+        ORBITAL VIEW · SIMULATION
+       </div>
+       <div class="planet">
+       </div>
+       <div class="orbit">
+       </div>
+      </div>
+      <div class="panel">
+       <div class="panel-title">
+        <h3>
+         Mission overview
+        </h3>
+        <span>
+         ASTRA / ISS
+        </span>
+       </div>
+       <div class="mission-facts">
+        <div class="fact">
+         <span>
+          Mission
+         </span>
+         <strong>
+          Expedition 07
+         </strong>
+        </div>
+        <div class="fact">
+         <span>
+          Destination
+         </span>
+         <strong>
+          Low Earth Orbit
+         </strong>
+        </div>
+        <div class="fact">
+         <span>
+          Mission elapsed
+         </span>
+         <strong>
+          18d 06h 42m
+         </strong>
+        </div>
+        <div class="fact">
+         <span>
+          Crew readiness
+         </span>
+         <strong style="color:var(--green)">
+          Nominal · 98%
+         </strong>
+        </div>
+        <div class="fact">
+         <span>
+          Next health check
+         </span>
+         <strong>
+          15:00 UTC
+         </strong>
+        </div>
+        <div class="fact">
+         <span>
+          Communications
+         </span>
+         <strong style="color:var(--green)">
+          Connected
+         </strong>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="section-head">
+      <div>
+       <h2>
+        Mission timeline
+       </h2>
+       <p>
+        Mission milestones
+       </p>
+      </div>
+     </div>
+     <div class="panel table-wrap">
+      <table class="data-table">
+       <thead>
+        <tr>
+         <th>
+          TIME (UTC)
+         </th>
+         <th>
+          EVENT
+         </th>
+         <th>
+          DETAIL
+         </th>
+         <th>
+          STATUS
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          08:00
+         </td>
+         <td>
+          Daily health baseline
+         </td>
+         <td>
+          Biometric calibration complete
+         </td>
+         <td>
+          <span class="status-pill">
+           Complete
+          </span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          10:30
+         </td>
+         <td>
+          Systems inspection
+         </td>
+         <td>
+          Life-support diagnostics
+         </td>
+         <td>
+          <span class="status-pill">
+           Complete
+          </span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          14:32
+         </td>
+         <td>
+          Telemetry sync
+         </td>
+         <td>
+          All crew wearables connected
+         </td>
+         <td>
+          <span class="status-pill">
+           Complete
+          </span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          15:00
+         </td>
+         <td>
+          Scheduled health check
+         </td>
+         <td>
+          Vitals review and wellbeing survey
+         </td>
+         <td>
+          <span class="status-pill warning">
+           Upcoming
+          </span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </section>
+    <section class="screen" id="vitals">
+     <div class="section-head" style="margin-top:0">
+      <div>
+       <div class="eyebrow">
+        Live biosensors
+       </div>
+       <h2 style="font-size:1.5rem;margin-top:7px">
+        Vitals &amp; telemetry
+       </h2>
+       <p>
+        Demo readings refresh automatically.
+       </p>
+      </div>
+      <span class="live">
+       <span class="status-dot">
+       </span>
+       STREAM ACTIVE
+      </span>
+     </div>
+     <div class="metric-grid">
+      <div class="metric">
+       <div class="metric-label">
+        HEART RATE
+       </div>
+       <div class="metric-value">
+        <span id="hr2">
+         68
+        </span>
+        <span class="unit">
+         bpm
+        </span>
+       </div>
+       <div class="metric-foot">
+        Expected demo range: 60–100
+       </div>
+      </div>
+      <div class="metric">
+       <div class="metric-label">
+        SPO₂
+       </div>
+       <div class="metric-value">
+        <span id="spo22">
+         98
+        </span>
+        <span class="unit">
+         %
+        </span>
+       </div>
+       <div class="metric-foot">
+        Expected demo range: 95–100%
+       </div>
+      </div>
+      <div class="metric">
+       <div class="metric-label">
+        TEMPERATURE
+       </div>
+       <div class="metric-value">
+        <span id="temp2">
+         36.7
+        </span>
+        <span class="unit">
+         °C
+        </span>
+       </div>
+       <div class="metric-foot">
+        Simulated core temperature
+       </div>
+      </div>
+      <div class="metric">
+       <div class="metric-label">
+        STRESS INDEX
+       </div>
+       <div class="metric-value">
+        <span id="stress2">
+         24
+        </span>
+        <span class="unit">
+         / 100
+        </span>
+       </div>
+       <div class="metric-foot">
+        Simulated wellness indicator
+       </div>
+      </div>
+     </div>
+     <div class="panel">
+      <div class="panel-title">
+       <h3>
+        Live readings
+       </h3>
+       <span id="lastSync">
+        SYNCED JUST NOW
+       </span>
+      </div>
+      <div class="table-wrap">
+       <table class="data-table">
+        <thead>
+         <tr>
+          <th>
+           PARAMETER
+          </th>
+          <th>
+           READING
+          </th>
+          <th>
+           UNIT
+          </th>
+          <th>
+           DEMO INTERPRETATION
+          </th>
+          <th>
+           FEED
+          </th>
+         </tr>
+        </thead>
+        <tbody id="vitalsRows">
+         <tr>
+          <td>
+           Heart rate
+          </td>
+          <td>
+           68
+          </td>
+          <td>
+           bpm
+          </td>
+          <td>
+           Within illustrative range
+          </td>
+          <td>
+           <span class="status-pill">
+            Live
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Oxygen saturation
+          </td>
+          <td>
+           98
+          </td>
+          <td>
+           %
+          </td>
+          <td>
+           Nominal
+          </td>
+          <td>
+           <span class="status-pill">
+            Live
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Body temperature
+          </td>
+          <td>
+           36.7
+          </td>
+          <td>
+           °C
+          </td>
+          <td>
+           Stable
+          </td>
+          <td>
+           <span class="status-pill">
+            Live
+           </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Stress index
+          </td>
+          <td>
+           24
+          </td>
+          <td>
+           /100
+          </td>
+          <td>
+           Low
+          </td>
+          <td>
+           <span class="status-pill">
+            Live
+           </span>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <p class="footnote">
+      Demo values only — not real medical measurements.
+     </p>
+    </section>
+    <section class="screen" id="alerts">
+     <div class="section-head" style="margin-top:0">
+      <div>
+       <div class="eyebrow">
+        Crew safety
+       </div>
+       <h2 style="font-size:1.5rem;margin-top:7px">
+        Health alerts
+       </h2>
+       <p>
+        Current system alerts.
+       </p>
+      </div>
+      <span class="tag">
+       0 CRITICAL
+      </span>
+     </div>
+     <div class="panel">
+      <div class="panel-title">
+       <h3>
+        Alert center
+       </h3>
+       <span>
+        LAST 24 HOURS
+       </span>
+      </div>
+      <div class="alert" style="background:#0b2925;border-color:#5ce0b02b">
+       <div style="font-size:1.1rem;color:var(--green)">
+        ✓
+       </div>
+       <div>
+        <strong style="color:var(--green)">
+         All clear · Sensors online
+        </strong>
+        <p>
+         All demo sensors are connected. No active critical alerts.
+        </p>
+       </div>
+      </div>
+      <div class="alert">
+       <div style="font-size:1.1rem;color:var(--amber)">
+        ◷
+       </div>
+       <div>
+        <strong>
+         Scheduled check-in · 15:00 UTC
+        </strong>
+        <p>
+         Routine crew check-in is scheduled.
+        </p>
+       </div>
+      </div>
+      <div class="alert" style="background:#0b1c2d;border-color:#61c9ff2b">
+       <div style="font-size:1.1rem;color:var(--blue)">
+        ↻
+       </div>
+       <div>
+        <strong style="color:var(--blue)">
+         Telemetry synchronized
+        </strong>
+        <p>
+         Wearable sensor feed last synchronized at
+         <span id="alertTime">
+          14:32 UTC
+         </span>
+         . Link status is nominal.
+        </p>
+       </div>
+      </div>
+     </div>
+     <p class="footnote">
+      Demo only. Not for medical decisions or emergency response.
+     </p>
+    </section>
+   </main>
+  </div>
+  <div class="toast" id="toast" role="status">
+  </div>
+  <script>
+   const crew = {
+      maya: {
+        name: 'Commander Maya Chen',
+        role: 'MISSION COMMANDER',
+        sub: 'Expedition 07 · International Space Station · Orbit 412',
+        hr: 68,
+        spo2: 98,
+        temp: 36.7,
+        stress: 24
+      },
+      leo: {
+        name: 'Dr. Leo Martínez',
+        role: 'FLIGHT SURGEON · CREW',
+        sub: 'Expedition 07 · International Space Station · Orbit 412',
+        hr: 72,
+        spo2: 99,
+        temp: 36.6,
+        stress: 19
+      },
+      amara: {
+        name: 'Amara Okafor',
+        role: 'FLIGHT ENGINEER',
+        sub: 'Expedition 07 · International Space Station · Orbit 412',
+        hr: 65,
+        spo2: 98,
+        temp: 36.8,
+        stress: 27
+      }
+    };
+
+    let selected = 'maya';
+
+    const screens = [...document.querySelectorAll('.screen')];
+    const nav = [...document.querySelectorAll('.nav button')];
+    const crumb = document.getElementById('crumb');
+    const toast = document.getElementById('toast');
+
+    let toastTimer;
+
+    function notify(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    function go(id) {
+      screens.forEach((screen) => {
+        screen.classList.toggle('active', screen.id === id);
+      });
+
+      nav.forEach((button) => {
+        button.classList.toggle('active', button.dataset.screen === id);
+      });
+
+      const names = {
+        select: 'Astronaut selection',
+        dashboard: 'Health dashboard',
+        mission: 'Mission status',
+        vitals: 'Vitals & telemetry',
+        alerts: 'Health alerts'
+      };
+
+      crumb.textContent = names[id] || id;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateCrew(key) {
+      selected = key;
+
+      const astronaut = crew[key];
+
+      document.getElementById('crew-name').textContent = astronaut.name;
+      document.getElementById('crew-role').textContent = astronaut.role;
+      document.getElementById('crew-sub').textContent = astronaut.sub;
+
+      setValues(astronaut);
+      go('dashboard');
+      notify(astronaut.name + ' selected · Dashboard ready');
+    }
+
+    function setValues(astronaut) {
+      ['hr', 'spo2', 'temp', 'stress'].forEach((key) => {
+        const element = document.getElementById(key);
+        if (element) {
+          element.textContent = astronaut[key];
+        }
+
+        const secondaryElement = document.getElementById(key + '2');
+        if (secondaryElement) {
+          secondaryElement.textContent = astronaut[key];
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-astronaut]').forEach((button) => {
+      button.addEventListener('click', () => {
+        updateCrew(button.dataset.astronaut);
+      });
+    });
+
+    document.getElementById('chooseBtn').addEventListener('click', () => {
+      document.querySelector('.section-head').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      notify('Choose a crew member to continue');
+    });
+
+    nav.forEach((button) => {
+      button.addEventListener('click', () => {
+        go(button.dataset.screen);
+      });
+    });
+
+    document.querySelectorAll('[data-goto]').forEach((button) => {
+      button.addEventListener('click', () => {
+        go(button.dataset.goto);
+      });
+    });
+
+    function tick() {
+      const now = new Date();
+
+      document.getElementById('clock').textContent =
+        now.toISOString().slice(11, 19);
+
+      const astronaut = crew[selected];
+
+      astronaut.hr = Math.max(
+        60,
+        Math.min(
+          82,
+          astronaut.hr + (Math.random() > 0.5 ? 1 : -1) *
+            (Math.random() > 0.55 ? 1 : 0)
+        )
+      );
+
+      astronaut.spo2 = Math.max(
+        96,
+        Math.min(
+          99,
+          astronaut.spo2 +
+            (Math.random() > 0.6 ? 1 : Math.random() < 0.25 ? -1 : 0)
+        )
+      );
+
+      astronaut.temp = +Math.max(
+        36.4,
+        Math.min(37.0, astronaut.temp + (Math.random() - 0.5) * 0.1)
+      ).toFixed(1);
+
+      astronaut.stress = Math.max(
+        12,
+        Math.min(
+          39,
+          astronaut.stress + Math.round((Math.random() - 0.52) * 3)
+        )
+      );
+
+      setValues(astronaut);
+
+      const values = [
+        ['Heart rate', astronaut.hr, 'bpm', 'Within illustrative range'],
+        ['Oxygen saturation', astronaut.spo2, '%', 'Nominal'],
+        ['Body temperature', astronaut.temp, '°C', 'Stable'],
+        [
+          'Stress index',
+          astronaut.stress,
+          '/100',
+          astronaut.stress < 30 ? 'Low' : 'Moderate'
+        ]
+      ];
+
+      const rows = document.getElementById('vitalsRows');
+
+      if (rows) {
+        rows.innerHTML = values.map((value) => `
+          <tr>
+            <td>${value[0]}</td>
+            <td>${value[1]}</td>
+            <td>${value[2]}</td>
+            <td>${value[3]}</td>
+            <td><span class="status-pill">Live</span></td>
+          </tr>
+        `).join('');
+      }
+
+      document.getElementById('lastSync').textContent =
+        'SYNCED ' + now.toISOString().slice(11, 19) + ' UTC';
+    }
+
+    setValues(crew[selected]);
+    tick();
+    setInterval(tick, 2800);
+  </script>
+ 
+<script>
+(() => {
+ const stage=document.getElementById('astraStage');
+ if(!stage) return;
+ const $=id=>document.getElementById(id);
+ const organs=stage.querySelectorAll('.organ');
+ const values={heart:72,mind:30,lungs:98,temp:36.8};
+ const labels={heart:['Heart rate',()=>values.heart+' bpm'],mind:['Stress',()=>values.mind+' / 100'],lungs:['SpO₂',()=>values.lungs+'%'],temp:['Temperature',()=>values.temp.toFixed(1)+' °C']};
+ const rand=(a,b)=>a+Math.random()*(b-a);
+ let active=null, activeOrgan=null;
+ const highlight=(key,organ)=>{
+   active=key; activeOrgan=key?(organ||stage.querySelector('.organ[data-vital="'+key+'"]')):null;
+   stage.classList.toggle('focus',!!key);
+   organs.forEach(o=>o.classList.toggle('on',o.dataset.vital===key));
+   document.querySelectorAll('.scan-value').forEach(c=>c.classList.toggle('on',c.dataset.scan===key));
+   const tip=$('astraTip'); tip.classList.toggle('show',!!key);
+   if(key){tip.style.left='50%';tip.style.top=Math.max(28,activeOrgan.getBBox().y/480*100)+'%';$('astraTipLabel').textContent=labels[key][0];$('astraTipValue').textContent=labels[key][1]();}
+ };
+ organs.forEach(o=>{
+   o.addEventListener('mouseenter',()=>highlight(o.dataset.vital,o));
+   o.addEventListener('mouseleave',()=>highlight(null));
+   o.addEventListener('click',e=>{e.stopPropagation();if(stage.classList.contains('open'))highlight(o.dataset.vital,o);});
+ });
+ document.querySelectorAll('.scan-value').forEach(c=>{
+   c.addEventListener('mouseenter',()=>{stage.classList.add('peek');highlight(c.dataset.scan);});
+   c.addEventListener('mouseleave',()=>{stage.classList.remove('peek');highlight(null);});
+ });
+ const toggle=()=>{stage.classList.toggle('open');highlight(null);};
+ stage.addEventListener('click',toggle);
+ stage.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+
+ const renderHeartWave=(bpm)=>{
+   const line=$('waveLine'), area=$('waveArea');
+   if(!line || !area) return;
+   const points=[];
+   const seconds=10;
+   const beats=Math.max(1,Math.round(bpm*seconds/60));
+   const beatWidth=600/beats;
+   const baseline=78;
+   const pulse=[
+     [0,0],[.10,0],[.15,-2],[.19,-5],[.23,0],
+     [.34,0],[.39,5],[.43,0],[.47,-42],[.51,32],
+     [.55,-11],[.60,0],[.72,0],[.78,-3],[.84,0],[1,0]
+   ];
+   for(let beat=0;beat<beats;beat++){
+     const offset=beat*beatWidth;
+     for(const [phase,delta] of pulse){
+       const x=offset+phase*beatWidth;
+       if(x<=600) points.push([x,baseline+delta]);
+     }
+   }
+   points.sort((a,b)=>a[0]-b[0]);
+   const d='M '+points.map(([x,y])=>`${x.toFixed(1)} ${y.toFixed(1)}`).join(' L ');
+   line.setAttribute('d',d);
+   area.setAttribute('d',d+' L 600 150 L 0 150 Z');
+ };
+ const update=()=>{
+   values.heart=Math.round(rand(68,77)); values.mind=Math.round(rand(26,36)); values.lungs=Math.round(rand(97,99)); values.temp=rand(36.6,37);
+   $('scanHeart').textContent=values.heart;
+   renderHeartWave(values.heart); $('scanMind').textContent=values.mind; $('scanLungs').textContent=values.lungs; $('scanTemp').textContent=values.temp.toFixed(1);
+   $('scanMindBar').style.width=values.mind+'%';
+   stage.style.setProperty('--beat',(60/values.heart)+'s');
+   const mercury=stage.querySelector('.mercury'); if(mercury) mercury.style.setProperty('--lvl',(values.temp-35.5)/2);
+   if(active){$('astraTipValue').textContent=labels[active][1]();}
+ };
+ update(); setInterval(update,3000);
+})();
+</script>
+
+</body>
+</html>
