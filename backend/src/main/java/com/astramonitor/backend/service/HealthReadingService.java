@@ -12,6 +12,7 @@ import com.astramonitor.backend.repository.AstronautRepository;
 import com.astramonitor.backend.repository.HealthReadingRepository;
 
 import com.astramonitor.backend.service.RiskAssessmentService;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,16 +27,18 @@ public class HealthReadingService {
     private final RiskAssessmentService riskAssessmentService;
     private final MLClient mlClient;
     private final MLPredictionService mlPredictionService;
+    private final SimpMessagingTemplate messagingTemplate;
 
     public HealthReadingService(
             HealthReadingRepository healthReadingRepository,
             AstronautRepository astronautRepository,
-            RiskAssessmentService riskAssessmentService, MLClient mlClient, MLPredictionService mlPredictionService) {
+            RiskAssessmentService riskAssessmentService, MLClient mlClient, MLPredictionService mlPredictionService, SimpMessagingTemplate messagingTemplate) {
         this.healthReadingRepository = healthReadingRepository;
         this.astronautRepository = astronautRepository;
         this.riskAssessmentService = riskAssessmentService;
         this.mlClient = mlClient;
         this.mlPredictionService = mlPredictionService;
+        this.messagingTemplate = messagingTemplate;
     }
 
     @Transactional
@@ -62,17 +65,15 @@ public class HealthReadingService {
 
         riskAssessmentService.assessRisk(savedReading);
 
-
         try {
             MLPredictionResponse prediction = mlClient.predict(request);
             mlPredictionService.savePrediction(astronaut, prediction);
-
         } catch (Exception e) {
             System.err.println("ML prediction failed:");
             e.printStackTrace();
         }
 
-        return new HealthReadingResponseDto(
+        HealthReadingResponseDto response = new HealthReadingResponseDto(
                 savedReading.getId(),
                 astronaut.getId(),
                 astronaut.getName(),
@@ -83,6 +84,10 @@ public class HealthReadingService {
                 savedReading.getStressLevel(),
                 savedReading.getRecordedAt()
         );
+
+        messagingTemplate.convertAndSend("/topic/health", response);
+
+        return response;
     }
 
     public List<HealthReading> getHealthHistory(Long astronautId) {
